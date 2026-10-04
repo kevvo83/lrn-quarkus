@@ -16,7 +16,10 @@ import lombok.Setter;
     uniqueConstraints = @UniqueConstraint(
         name="employee_first_name_last_name_uniq",
         columnNames = {"first_name", "last_name"}
-    )
+    ),
+    indexes = {
+        @Index(name="idx_emp_id", columnList="id DESC")
+    }
 )
 public class Employee {
     @Id
