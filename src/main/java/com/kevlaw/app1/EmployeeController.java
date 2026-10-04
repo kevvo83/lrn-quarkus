@@ -96,7 +96,14 @@ public class EmployeeController {
                 addSubject(createdEntity).
                 onItem().transform(ignored -> Response.ok(createdEntity).build()).
                 onFailure(DuplicateEmployeeInsertException.class).
-                recoverWithItem(Response.status(Response.Status.CONFLICT).build()).
+                recoverWithItem(
+                        Response.status(Response.Status.CONFLICT).entity(
+                            Map.of(
+                                "error", "Duplicate record detected, could not add new record as configured",
+                                "body", EmployeeDto.fromEmployee(createdEntity)
+                            )
+                        ).build()
+                ).
                 onFailure(ServerError.class).
                 recoverWithItem(Response.status(Response.Status.INTERNAL_SERVER_ERROR).build()).
                 onFailure(RepositoryTimeoutException.class).

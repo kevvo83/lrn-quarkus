@@ -23,6 +23,7 @@ dependencies {
     // Hibernate ORM specific dependencies
     implementation("io.quarkus:quarkus-hibernate-orm")
     implementation("io.quarkus:quarkus-hibernate-reactive") // reactive async hibernate ORM
+    implementation("io.quarkus:quarkus-flyway") // versioned database migrations
 
     // JDBC driver dependencies - Quarkus Dev Services should pick this up and spin up a local PG instance
     implementation("io.quarkus:quarkus-jdbc-postgresql")

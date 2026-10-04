@@ -9,6 +9,7 @@
   * How to Unit Test
   * OSS code base - understand it - for eg. what is Infrastructure, etc?
 * Futures/CompletableFutures
+  * What's the relationship between CompleteableFutures and Uni/Multi?
 * Quarkus
   * Quarkus and Jakarta EE
     * Jakarta JAX-RS (Java API for RESTful Web Services)

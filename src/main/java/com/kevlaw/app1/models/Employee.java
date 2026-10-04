@@ -8,8 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
-
 @Entity
 @Getter
 @Setter
@@ -17,7 +15,7 @@ import java.math.BigInteger;
 @Table(
     uniqueConstraints = @UniqueConstraint(
         name="employee_first_name_last_name_uniq",
-        columnNames = {"firstName", "lastName"}
+        columnNames = {"first_name", "last_name"}
     )
 )
 public class Employee {
@@ -26,11 +24,15 @@ public class Employee {
     public Long id;
 
     @Nonnull
+    @Column(name = "first_name", nullable = false)
     public String firstName;
+
     @Nonnull
+    @Column(name = "last_name", nullable = false)
     public String lastName;
 
     @Nullable
+    @Column(name = "middle_name")
     public String middleName;
 
     public Employee(
