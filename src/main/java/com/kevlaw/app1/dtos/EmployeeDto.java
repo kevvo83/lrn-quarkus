@@ -2,7 +2,13 @@ package com.kevlaw.app1.dtos;
 import com.kevlaw.app1.models.Employee;
 import jakarta.annotation.Nullable;
 import jakarta.annotation.Nonnull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class EmployeeDto {
     public String id;
     public String firstName;

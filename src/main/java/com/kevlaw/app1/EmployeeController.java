@@ -5,7 +5,6 @@ import com.kevlaw.app1.exceptions.DuplicateEmployeeInsertException;
 import com.kevlaw.app1.exceptions.RepositoryTimeoutException;
 import com.kevlaw.app1.exceptions.ServerError;
 import com.kevlaw.app1.models.Employee;
-import com.kevlaw.app1.models.PagingResponse;
 import com.kevlaw.app1.repositories.AsyncEmployeeRepository;
 import com.kevlaw.app1.repositories.SyncEmployeeRepository;
 import io.smallrye.mutiny.Uni;
@@ -164,8 +163,7 @@ public class EmployeeController {
     public Uni<Response> getAllEmployees(@QueryParam("cursorId") String cursorId, @QueryParam("limit") int limit) {
         return asyncEmployeeRepository.getAllSubjects(cursorId, limit).
                 onItem().transform(res -> {
-                    return res.getEmployee().isEmpty() ? Response.status(Response.Status.NOT_FOUND).build() :
-                            Response.ok(res).build();
+                    return res.getEmployee().isEmpty() ? Response.status(Response.Status.NOT_FOUND).build() : Response.ok(res).build();
                 });
     }
 }

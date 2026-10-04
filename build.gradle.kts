@@ -32,7 +32,8 @@ dependencies {
     // Platform and Logging
     implementation("org.jboss.slf4j:slf4j-jboss-logmanager")
     implementation("org.slf4j:slf4j-api:2.0.18")
-    implementation("org.projectlombok:lombok:1.18.42")
+    compileOnly("org.projectlombok:lombok:1.18.42")
+    annotationProcessor("org.projectlombok:lombok:1.18.42")
 
     // Reactive application libs
 
